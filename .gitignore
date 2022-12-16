@@ -1,0 +1,8 @@
+media/
+venv/
+__pycache__/
+
+bootstrap-5-dark-theme-main/
+
+db.sqlite3
+copies.html

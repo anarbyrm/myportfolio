@@ -3,4 +3,23 @@
 
 
 {% block content %}
+    {% for project in projects %}
+    <div class="row m-3">
+        <div class="col-8 mx-auto">
+            <div class="card bg-secondary">
+                {% if project.photo %}
+                    <img class="card-img-top" src="{{ project.photo.url }}" alt="Card image">
+                {% endif %}
+                <div class="card-header"><h1 class="text-light">{{ project.title }}</h1></div>
+                <div class="card-body"><p class="text-light">{{ project.description }} </p></div>
+                <div class="card-footer">
+                    {% if project.site %}
+                        <a class='btn btn-primary' href="{{ project.site }}" target="_blank">Live link</a>
+                    {% endif %}
+                    <a class='btn btn-warning' href="{{ project.repo }}" target="_blank">Github repo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}

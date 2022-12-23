@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
+from . import models
 
 
 class HomePageView(TemplateView):
@@ -10,10 +11,9 @@ class HomePageView(TemplateView):
         return context
     
 
-class ProjectPageView(TemplateView):
+class ProjectPageView(ListView):
     template_name = 'project-page.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    queryset = models.Project.objects.all()
+    context_object_name = 'projects'
+    paginate_by = 3
 

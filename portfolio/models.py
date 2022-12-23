@@ -26,6 +26,9 @@ class Project(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    class Meta:
+        ordering = ('-added_at',)
+
 
 class OpenSource(models.Model):
     title = models.CharField(max_length=120)
